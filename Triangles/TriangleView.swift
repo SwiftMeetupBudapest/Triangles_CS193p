@@ -13,17 +13,19 @@ class TriangleView: UIView {
 
     //Has to be CGFloat, Double value won't show up in Inspector
     @IBInspectable
+    var rotation: CGFloat = 0 {
+        didSet {
+            transform = CGAffineTransformMakeRotation(CGFloat( rotation ) )
+            setNeedsDisplay()
+        }
+    }
+
+    @IBInspectable
     var scale : CGFloat = 0.5 {
             didSet {
                 setNeedsDisplay()
             }
         }
-    var rotation: CGFloat = 0 {
-        didSet {
-            self.transform = CGAffineTransformMakeRotation(CGFloat( rotation ) )
-            setNeedsDisplay()
-        }
-    }
     
     func scaleAction(gesture: UIPinchGestureRecognizer) {
         scale = gesture.scale * scale

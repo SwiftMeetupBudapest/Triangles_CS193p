@@ -12,6 +12,7 @@ class TrianglesViewController: UIViewController {
 
     @IBOutlet weak var triangleView: TriangleView! {
         didSet {
+            // Add gesture recognizers in a way that the View will handle the gestures
             triangleView.addGestureRecognizer(UIPinchGestureRecognizer(target: triangleView, action: "scaleAction:"))
             triangleView.addGestureRecognizer(UIRotationGestureRecognizer(target: triangleView, action: "rotateAction:"))
         }
