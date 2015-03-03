@@ -15,6 +15,7 @@ class TriangleView: UIView {
     @IBInspectable
     var rotation: CGFloat = 0 {
         didSet {
+            transform = CGAffineTransformMakeRotation(rotation)
             setNeedsDisplay()
         }
     }
@@ -62,7 +63,6 @@ class TriangleView: UIView {
         
         path.stroke()
         path.fill()
-        transform = CGAffineTransformMakeRotation(rotation)
 
     }
 
