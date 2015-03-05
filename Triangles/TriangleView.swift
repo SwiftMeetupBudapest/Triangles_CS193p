@@ -47,8 +47,11 @@ class TriangleView: UIView {
     override func drawRect(rect: CGRect) {
         let path = UIBezierPath();
 
-        let w = (self.bounds.width ?? 320) * scale
-        let h = (self.bounds.height ?? 480) * scale
+        let biggerDim = max(self.bounds.size.width, self.bounds.size.height)
+        let smallerDim = min(self.bounds.size.width, self.bounds.size.height)
+        
+        let w = (smallerDim ?? 320) * scale
+        let h = (biggerDim ?? 480) * scale
         let hCenter = w / 2
         let vFourth = h / 4
 
